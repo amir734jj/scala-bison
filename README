@@ -62,4 +62,14 @@ See https://github.com/moy/JFlex/tree/1.5+scala
 	make
   Now you have a scala-bison generated and compiled by itself.
 
-  
+
+-----------------------------------------------------------------------------------------------
+
+Or use Docker to automate the bootstrapping and generate `scala-bison.jar` for you 
+  (Modify `Dockerfile` variables to set desired scala version.)
+
+```
+docker build . -t scala-bison \
+  && docker run -v `pwd`:/root -it --rm scala-bison sh -c \
+    'cp /usr/lib/scala-bison/scala-bison.jar /root/scala-bison.jar'
+```
